@@ -19,12 +19,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.br.giardini.livedataviewmodeltraining.viewmodel.StepTrackerViewModel
+import com.br.giardini.livedataviewmodeltraining.viewmodel.SimpleCounterViewModel
 
 @Composable
-fun StepCounter(viewModel:StepTrackerViewModel){
+fun StepCounter(viewModel:SimpleCounterViewModel){
 
-    viewModel?.tracker?.observeAsState()?.value
+    viewModel?.counter?.observeAsState()?.value
 
     viewModel?.error?.observeAsState()?.value?.let {
 
@@ -43,7 +43,7 @@ fun StepCounter(viewModel:StepTrackerViewModel){
         Box(contentAlignment = Alignment.Center,modifier = Modifier
             .fillMaxWidth()
         ){
-            Text(text = "Steps taken: ${viewModel.tracker.value}", fontSize = 30.sp)
+            Text(text = "Count: ${viewModel.counter.value}", fontSize = 30.sp)
         }
         Spacer(Modifier.size(12.dp))
         Box(contentAlignment = Alignment.Center,modifier = Modifier
